@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const categories = [
   {
     name: "Association Rules",
@@ -46,7 +48,7 @@ const categories = [
       <h1 class="font-heading text-4xl font-bold text-white sm:text-5xl">Documents & Downloads</h1>
       <p class="mt-3 text-lg text-white/80">Access important community documents</p>
       <nav class="mt-4 flex items-center justify-center gap-2 text-sm text-white/70">
-        <a href="/" class="transition-colors hover:text-white">Home</a>
+        <a href={`${base}/`} class="transition-colors hover:text-white">Home</a>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
         </svg>
@@ -93,7 +95,7 @@ const categories = [
 
                   <!-- Download Link -->
                   <a
-                    href={`/documents/${doc.file}`}
+                    href={`${base}/documents/${doc.file}`}
                     class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors hover:bg-primary hover:text-white dark:bg-primary/20 dark:text-primary-light dark:hover:bg-primary dark:hover:text-white"
                     title={`Download ${doc.name}`}
                     download

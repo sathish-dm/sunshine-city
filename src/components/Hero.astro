@@ -5,6 +5,8 @@ interface Props {
   showStats?: boolean;
 }
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const {
   title = "Sunshine City",
   subtitle = "Thirumazhisai, Chennai",
@@ -55,7 +57,7 @@ const stats = [
 
     <div class="mt-12">
       <a
-        href="/about"
+        href={`${base}/about`}
         class="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-base font-semibold text-primary-dark shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/90 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary dark:bg-secondary dark:text-white dark:hover:bg-secondary-light"
       >
         Explore Our Community

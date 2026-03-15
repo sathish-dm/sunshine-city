@@ -3,6 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import AnnouncementCard from "../components/AnnouncementCard.astro";
 import announcementsData from "../data/announcements.json";
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 // Sort announcements by date descending (newest first)
 const announcements = [...announcementsData].sort(
   (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
@@ -17,7 +19,7 @@ const announcements = [...announcementsData].sort(
       <h1 class="font-heading text-4xl font-bold text-white sm:text-5xl">Announcements & Notices</h1>
       <p class="mt-3 text-lg text-white/80">Stay updated with the latest community news and important notices</p>
       <nav class="mt-4 flex items-center justify-center gap-2 text-sm text-white/70">
-        <a href="/" class="transition-colors hover:text-white">Home</a>
+        <a href={`${base}/`} class="transition-colors hover:text-white">Home</a>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
         </svg>

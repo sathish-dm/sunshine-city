@@ -8,6 +8,8 @@ interface Props {
   description?: string;
 }
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const {
   title,
   description = "SRWA - Sunshine Residents Welfare Association. A vibrant community in Sunshine City, Thirumazhisai, Chennai.",
@@ -25,8 +27,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? "https://srwa.in"
     <meta name="generator" content={Astro.generator} />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <link rel="icon" href={`${base}/favicon.ico`} />
 
     <!-- SEO -->
     <title>{title} | {siteName}</title>

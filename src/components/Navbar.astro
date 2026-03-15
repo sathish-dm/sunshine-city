@@ -1,15 +1,16 @@
 ---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const currentPath = Astro.url.pathname;
 
 const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Committee", href: "/committee" },
-  { name: "Events", href: "/events" },
-  { name: "Documents", href: "/documents" },
-  { name: "Gallery", href: "/gallery" },
-  { name: "Residents", href: "/residents" },
-  { name: "Contact", href: "/contact" },
+  { name: "Home", href: `${base}/` },
+  { name: "About", href: `${base}/about` },
+  { name: "Committee", href: `${base}/committee` },
+  { name: "Events", href: `${base}/events` },
+  { name: "Documents", href: `${base}/documents` },
+  { name: "Gallery", href: `${base}/gallery` },
+  { name: "Residents", href: `${base}/residents` },
+  { name: "Contact", href: `${base}/contact` },
 ];
 ---
 
@@ -17,8 +18,8 @@ const navLinks = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-2 shrink-0">
-        <img src="/favicon.svg" alt="SRWA Logo" class="h-8 w-8" />
+      <a href={`${base}/`} class="flex items-center gap-2 shrink-0">
+        <img src={`${base}/favicon.svg`} alt="SRWA Logo" class="h-8 w-8" />
         <span class="text-white font-heading text-xl font-bold tracking-wide">SRWA</span>
       </a>
 
