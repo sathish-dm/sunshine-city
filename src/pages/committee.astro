@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CommitteeCard from "../components/CommitteeCard.astro";
+import committeeMembers from "../data/committee.json";
+---
+
+<BaseLayout title="Committee Members - SRWA" description="Meet the elected committee members of Sunshine Residents Welfare Association managing our community.">
+  <!-- Page Header Banner -->
+  <section class="relative bg-gradient-to-br from-primary-dark to-primary py-16 sm:py-20">
+    <div class="absolute inset-0 opacity-10" style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;);"></div>
+    <div class="relative z-10 mx-auto max-w-5xl px-4 text-center sm:px-6">
+      <h1 class="font-heading text-4xl font-bold text-white sm:text-5xl">Committee Members</h1>
+      <p class="mt-3 text-lg text-white/80">Meet the dedicated team managing our community</p>
+      <nav class="mt-4 flex items-center justify-center gap-2 text-sm text-white/70">
+        <a href="/" class="transition-colors hover:text-white">Home</a>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+        </svg>
+        <span class="text-white">Committee</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Committee Section -->
+  <section class="bg-bg py-16 sm:py-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <!-- Intro -->
+      <div class="mb-12 rounded-2xl border border-gray-100 bg-white p-8 shadow-lg dark:border-gray-700 dark:bg-gray-800">
+        <p class="text-lg leading-relaxed text-text-light dark:text-gray-300">
+          The SRWA committee is an elected body of dedicated residents who volunteer their time and effort to manage the day-to-day affairs of our community. Elected through a democratic process, the committee oversees maintenance, security, finances, and community events to ensure a comfortable and harmonious living environment for all residents of Sunshine City.
+        </p>
+      </div>
+
+      <!-- Committee Grid -->
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {committeeMembers.map((member) => (
+          <CommitteeCard
+            name={member.name}
+            position={member.position}
+            image={member.image}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

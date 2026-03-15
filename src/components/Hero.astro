@@ -1,0 +1,68 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  showStats?: boolean;
+}
+
+const {
+  title = "Sunshine City",
+  subtitle = "Thirumazhisai, Chennai",
+  showStats = true,
+} = Astro.props;
+
+const stats = [
+  { value: "599", label: "Plots" },
+  { value: "36", label: "Acres" },
+  { value: "RERA", label: "Approved" },
+];
+---
+
+<section class="relative w-full overflow-hidden bg-gradient-to-br from-primary-dark to-primary">
+  <!-- Pattern overlay -->
+  <div
+    class="absolute inset-0 opacity-10"
+    style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;);"
+  ></div>
+
+  <div class="relative z-10 mx-auto max-w-6xl px-4 py-28 text-center sm:px-6 sm:py-32 lg:py-40">
+    <h1 class="font-heading text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+      {title}
+    </h1>
+
+    <p class="mt-4 text-lg font-medium text-white/90 sm:text-xl md:text-2xl">
+      {subtitle}
+    </p>
+
+    <p class="mt-2 text-base text-white/75 sm:text-lg">
+      A Premier 36-Acre Residential Community
+    </p>
+
+    {showStats && (
+      <div class="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-6">
+        {stats.map((stat) => (
+          <div class="rounded-xl border border-white/20 bg-white/10 px-6 py-5 backdrop-blur-sm transition-transform duration-300 hover:scale-105">
+            <p class="font-heading text-3xl font-bold text-white sm:text-4xl">
+              {stat.value}
+            </p>
+            <p class="mt-1 text-sm font-medium tracking-wide text-white/80 uppercase">
+              {stat.label}
+            </p>
+          </div>
+        ))}
+      </div>
+    )}
+
+    <div class="mt-12">
+      <a
+        href="/about"
+        class="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-base font-semibold text-primary-dark shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/90 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary dark:bg-secondary dark:text-white dark:hover:bg-secondary-light"
+      >
+        Explore Our Community
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Mr. Lakshmi Narayanan",
+    "position": "President",
+    "image": "/images/avatar-placeholder.svg"
+  },
+  {
+    "name": "Mr. Jaganathan R",
+    "position": "Vice President",
+    "image": "/images/avatar-placeholder.svg"
+  },
+  {
+    "name": "Mr. Senthilkumar",
+    "position": "Secretary",
+    "image": "/images/avatar-placeholder.svg"
+  },
+  {
+    "name": "Mr. Bhaskar",
+    "position": "Joint Secretary",
+    "image": "/images/avatar-placeholder.svg"
+  },
+  {
+    "name": "Mr. Sathish",
+    "position": "Treasurer",
+    "image": "/images/avatar-placeholder.svg"
+  }
+]

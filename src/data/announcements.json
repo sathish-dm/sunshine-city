@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Annual Maintenance Fee Due",
+    "date": "2026-03-10",
+    "category": "Tax Updates",
+    "description": "Residents are requested to pay the annual maintenance fee of Rs. 6,000 before March 31, 2026. Payment can be made via UPI or bank transfer to the SRWA account.",
+    "important": true
+  },
+  {
+    "id": 2,
+    "title": "Water Supply Schedule Update",
+    "date": "2026-03-05",
+    "category": "Water Supply",
+    "description": "Due to maintenance work by the Panchayat, water supply will be available from 6:00 AM to 9:00 AM and 5:00 PM to 7:00 PM from March 6-8. Please store water accordingly.",
+    "important": true
+  },
+  {
+    "id": 3,
+    "title": "General Body Meeting Notice",
+    "date": "2026-02-28",
+    "category": "Meeting Notices",
+    "description": "The Annual General Body Meeting of SRWA will be held on March 15, 2026, at 10:00 AM in the Community Hall. All residents are requested to attend.",
+    "important": false
+  },
+  {
+    "id": 4,
+    "title": "New Security Measures Implemented",
+    "date": "2026-02-20",
+    "category": "Security",
+    "description": "CCTV cameras have been installed at all entry/exit points. Visitor management system is now active. Please ensure all visitors register at the gate.",
+    "important": false
+  },
+  {
+    "id": 5,
+    "title": "Street Light Maintenance Complete",
+    "date": "2026-02-15",
+    "category": "Maintenance",
+    "description": "All street lights in Blocks A through E have been serviced and non-functional lights replaced. Please report any issues to the association office.",
+    "important": false
+  }
+]

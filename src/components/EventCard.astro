@@ -1,0 +1,90 @@
+---
+interface Props {
+  title: string;
+  date: string;
+  time?: string;
+  location?: string;
+  category?: string;
+  description?: string;
+  status?: "upcoming" | "past";
+}
+
+const {
+  title,
+  date,
+  time,
+  location,
+  category,
+  description,
+  status = "upcoming",
+} = Astro.props;
+
+const dateObj = new Date(date);
+const day = dateObj.getDate();
+const month = dateObj.toLocaleString("en-US", { month: "short" }).toUpperCase();
+const year = dateObj.getFullYear();
+
+const isUpcoming = status === "upcoming";
+---
+
+<div class="group flex overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800">
+  <!-- Date block -->
+  <div class={`flex w-24 shrink-0 flex-col items-center justify-center p-4 ${isUpcoming ? "bg-primary text-white" : "bg-gray-200 text-gray-600 dark:bg-gray-700 dark:text-gray-300"}`}>
+    <span class="font-heading text-3xl font-bold leading-none">{day}</span>
+    <span class="mt-1 text-xs font-semibold tracking-wider uppercase">{month}</span>
+    <span class="mt-0.5 text-xs opacity-80">{year}</span>
+  </div>
+
+  <!-- Content -->
+  <div class="flex flex-1 flex-col p-5">
+    <div class="mb-2 flex flex-wrap items-center gap-2">
+      <!-- Status badge -->
+      <span
+        class={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${
+          isUpcoming
+            ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400"
+            : "bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400"
+        }`}
+      >
+        <span class={`mr-1.5 h-1.5 w-1.5 rounded-full ${isUpcoming ? "bg-green-500" : "bg-gray-400"}`}></span>
+        {isUpcoming ? "Upcoming" : "Past"}
+      </span>
+
+      <!-- Category tag -->
+      {category && (
+        <span class="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary dark:bg-primary/20 dark:text-primary-light">
+          {category}
+        </span>
+      )}
+    </div>
+
+    <h3 class="font-heading text-lg font-semibold text-text dark:text-white">
+      {title}
+    </h3>
+
+    {description && (
+      <p class="mt-2 line-clamp-2 text-sm text-text-muted dark:text-gray-400">
+        {description}
+      </p>
+    )}
+
+    <div class="mt-auto flex flex-wrap items-center gap-4 pt-3 text-sm text-text-light dark:text-gray-400">
+      {time && (
+        <span class="inline-flex items-center gap-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-text-muted dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+          </svg>
+          {time}
+        </span>
+      )}
+      {location && (
+        <span class="inline-flex items-center gap-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-text-muted dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+          </svg>
+          {location}
+        </span>
+      )}
+    </div>
+  </div>
+</div>

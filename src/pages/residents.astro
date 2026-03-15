@@ -1,0 +1,212 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/ContactForm.astro";
+
+const emergencyContacts = [
+  { name: "Police", number: "100", tel: "100" },
+  { name: "Fire Station", number: "101", tel: "101" },
+  { name: "Ambulance", number: "108", tel: "108" },
+  { name: "Women Helpline", number: "181", tel: "181" },
+  { name: "Child Helpline", number: "1098", tel: "1098" },
+  { name: "Nearest Hospital (Panimalar Medical)", number: "+91 44 2627 2510", tel: "+914426272510" },
+];
+
+const wasteInfo = [
+  {
+    title: "Wet Waste",
+    description: "Daily collection at 7:00 AM",
+    detail: "Green bin",
+    color: "bg-green-500",
+    colorLight: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>`,
+  },
+  {
+    title: "Dry Waste",
+    description: "Wednesday & Saturday",
+    detail: "Blue bin",
+    color: "bg-blue-500",
+    colorLight: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>`,
+  },
+  {
+    title: "E-Waste",
+    description: "Contact association office for disposal",
+    detail: "By appointment",
+    color: "bg-amber-500",
+    colorLight: "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
+  },
+  {
+    title: "Bulk Waste",
+    description: "Arrange pickup by calling association",
+    detail: "On request",
+    color: "bg-red-500",
+    colorLight: "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>`,
+  },
+];
+---
+
+<BaseLayout title="Residents Corner - SRWA" description="Services, emergency contacts, waste management, and maintenance information for SRWA community members.">
+  <!-- Page Header Banner -->
+  <section class="relative bg-gradient-to-br from-primary-dark to-primary py-16 sm:py-20">
+    <div class="absolute inset-0 opacity-10" style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;);"></div>
+    <div class="relative z-10 mx-auto max-w-5xl px-4 text-center sm:px-6">
+      <h1 class="font-heading text-4xl font-bold text-white sm:text-5xl">Residents Corner</h1>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-white/80">Services and information for our community members</p>
+      <nav class="mt-4 flex items-center justify-center gap-2 text-sm text-white/70">
+        <a href="/" class="transition-colors hover:text-white">Home</a>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+        </svg>
+        <span class="text-white">Residents Corner</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Section 1: Complaint / Suggestion Form -->
+  <section class="bg-bg py-16 sm:py-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="text-center">
+        <h2 class="font-heading text-3xl font-bold text-text sm:text-4xl dark:text-white">
+          Complaint / Suggestion
+        </h2>
+        <div class="mx-auto mt-2 h-1 w-20 rounded-full bg-primary"></div>
+        <p class="mt-4 text-text-muted dark:text-gray-400">Share your feedback to help us improve the community</p>
+      </div>
+      <div class="mt-10">
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Emergency Contacts -->
+  <section class="bg-bg-alt py-16 sm:py-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="text-center">
+        <h2 class="font-heading text-3xl font-bold text-text sm:text-4xl dark:text-white">
+          Emergency Contacts
+        </h2>
+        <div class="mx-auto mt-2 h-1 w-20 rounded-full bg-primary"></div>
+        <p class="mt-4 text-text-muted dark:text-gray-400">Important numbers to keep handy</p>
+      </div>
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {emergencyContacts.map((contact) => (
+          <a
+            href={`tel:${contact.tel}`}
+            class="group flex items-center gap-4 rounded-xl border border-gray-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md dark:border-gray-700 dark:bg-gray-800"
+          >
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-red-100 text-red-600 transition-colors group-hover:bg-red-600 group-hover:text-white dark:bg-red-900/30 dark:text-red-400 dark:group-hover:bg-red-600 dark:group-hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm font-medium text-text-muted dark:text-gray-400">{contact.name}</p>
+              <p class="text-lg font-bold text-primary dark:text-primary-light">{contact.number}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Waste Management -->
+  <section class="bg-bg py-16 sm:py-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="text-center">
+        <h2 class="font-heading text-3xl font-bold text-text sm:text-4xl dark:text-white">
+          Waste Management
+        </h2>
+        <div class="mx-auto mt-2 h-1 w-20 rounded-full bg-primary"></div>
+        <p class="mt-4 text-text-muted dark:text-gray-400">Keep our community clean and green</p>
+      </div>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2">
+        {wasteInfo.map((item) => (
+          <div class="group rounded-2xl border border-gray-100 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800">
+            <div class="flex items-start gap-4">
+              <div class={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full ${item.colorLight}`}>
+                <Fragment set:html={item.icon} />
+              </div>
+              <div>
+                <h3 class="font-heading text-xl font-semibold text-text dark:text-white">{item.title}</h3>
+                <p class="mt-1 text-text-light dark:text-gray-300">{item.description}</p>
+                <span class={`mt-3 inline-block rounded-full px-3 py-1 text-xs font-semibold text-white ${item.color}`}>
+                  {item.detail}
+                </span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Maintenance Information -->
+  <section class="bg-bg-alt py-16 sm:py-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="text-center">
+        <h2 class="font-heading text-3xl font-bold text-text sm:text-4xl dark:text-white">
+          Maintenance Information
+        </h2>
+        <div class="mx-auto mt-2 h-1 w-20 rounded-full bg-primary"></div>
+        <p class="mt-4 text-text-muted dark:text-gray-400">Monthly maintenance details and payment options</p>
+      </div>
+      <div class="mt-10 rounded-2xl border border-gray-100 bg-white p-8 shadow-lg sm:p-10 dark:border-gray-700 dark:bg-gray-800">
+        <div class="grid gap-8 sm:grid-cols-2">
+          <!-- Monthly Maintenance -->
+          <div class="flex items-start gap-4">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-light">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-heading text-lg font-semibold text-text dark:text-white">Monthly Maintenance</h3>
+              <p class="mt-1 text-2xl font-bold text-primary dark:text-primary-light">Rs. 500 <span class="text-sm font-normal text-text-muted dark:text-gray-400">per plot</span></p>
+            </div>
+          </div>
+
+          <!-- Due Date -->
+          <div class="flex items-start gap-4">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-secondary/10 text-secondary dark:bg-secondary/20 dark:text-secondary-light">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-heading text-lg font-semibold text-text dark:text-white">Due Date</h3>
+              <p class="mt-1 text-lg text-text-light dark:text-gray-300">5th of every month</p>
+            </div>
+          </div>
+
+          <!-- Payment Modes -->
+          <div class="flex items-start gap-4">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-light">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-heading text-lg font-semibold text-text dark:text-white">Payment Modes</h3>
+              <p class="mt-1 text-text-light dark:text-gray-300">UPI, Bank Transfer, Cash at office</p>
+            </div>
+          </div>
+
+          <!-- Bank Details -->
+          <div class="flex items-start gap-4">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-secondary/10 text-secondary dark:bg-secondary/20 dark:text-secondary-light">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-heading text-lg font-semibold text-text dark:text-white">Bank Details</h3>
+              <p class="mt-1 text-text-light dark:text-gray-300">Contact us via the contact form for bank details</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

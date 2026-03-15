@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "title": "Pongal Celebration 2026",
+    "date": "2026-01-14",
+    "time": "9:00 AM - 1:00 PM",
+    "location": "Community Hall",
+    "category": "Festivals",
+    "description": "Grand Pongal celebrations with traditional cooking, rangoli competition, and cultural performances by residents. All families are welcome!",
+    "status": "past"
+  },
+  {
+    "id": 2,
+    "title": "Republic Day Flag Hoisting",
+    "date": "2026-01-26",
+    "time": "8:00 AM - 9:30 AM",
+    "location": "Main Park",
+    "category": "National Events",
+    "description": "Republic Day celebrations with flag hoisting ceremony followed by sweets distribution for all residents.",
+    "status": "past"
+  },
+  {
+    "id": 3,
+    "title": "Annual Sports Meet",
+    "date": "2026-03-22",
+    "time": "7:00 AM - 12:00 PM",
+    "location": "Sports Ground",
+    "category": "Sports",
+    "description": "Annual sports day featuring cricket, badminton, running races for kids and adults, and fun games. Prizes for winners in each category!",
+    "status": "upcoming"
+  },
+  {
+    "id": 4,
+    "title": "Community Cleanliness Drive",
+    "date": "2026-04-05",
+    "time": "6:30 AM - 9:00 AM",
+    "location": "Entire Layout",
+    "category": "Cleanliness Drive",
+    "description": "Monthly cleanliness drive covering all streets and parks. Volunteers are requested to gather at the Main Gate at 6:30 AM. Cleaning materials will be provided.",
+    "status": "upcoming"
+  },
+  {
+    "id": 5,
+    "title": "Tamil New Year Celebration",
+    "date": "2026-04-14",
+    "time": "10:00 AM - 1:00 PM",
+    "location": "Community Hall",
+    "category": "Festivals",
+    "description": "Tamil Puthandu celebrations with special puja, traditional lunch, and cultural programs by residents and children.",
+    "status": "upcoming"
+  }
+]

@@ -1,0 +1,116 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/ContactForm.astro";
+---
+
+<BaseLayout title="Contact Us - SRWA" description="Get in touch with Sunshine Residents Welfare Association. Visit our office, call, email, or fill out the contact form.">
+  <!-- Page Header Banner -->
+  <section class="relative bg-gradient-to-br from-primary-dark to-primary py-16 sm:py-20">
+    <div class="absolute inset-0 opacity-10" style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;);"></div>
+    <div class="relative z-10 mx-auto max-w-5xl px-4 text-center sm:px-6">
+      <h1 class="font-heading text-4xl font-bold text-white sm:text-5xl">Contact Us</h1>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-white/80">We'd love to hear from you. Reach out to us anytime.</p>
+      <nav class="mt-4 flex items-center justify-center gap-2 text-sm text-white/70">
+        <a href="/" class="transition-colors hover:text-white">Home</a>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+        </svg>
+        <span class="text-white">Contact Us</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Contact Info + Form -->
+  <section class="bg-bg py-16 sm:py-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="grid gap-10 lg:grid-cols-5">
+        <!-- Left: Contact Information -->
+        <div class="lg:col-span-2">
+          <h2 class="font-heading text-2xl font-bold text-text dark:text-white">Get in Touch</h2>
+          <div class="mx-0 mt-2 h-1 w-16 rounded-full bg-primary"></div>
+          <p class="mt-4 text-text-muted dark:text-gray-400">Reach out to us through any of the following channels.</p>
+
+          <div class="mt-8 space-y-6">
+            <!-- Address -->
+            <div class="flex items-start gap-4">
+              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-light">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-heading text-sm font-semibold uppercase tracking-wide text-text-muted dark:text-gray-400">Address</h3>
+                <p class="mt-1 text-text-light dark:text-gray-300">
+                  SRWA Office, Sunshine City Layout,<br />
+                  Thirumazhisai, Chennai - 602107,<br />
+                  Tamil Nadu
+                </p>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="flex items-start gap-4">
+              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-light">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-heading text-sm font-semibold uppercase tracking-wide text-text-muted dark:text-gray-400">Email</h3>
+                <a href="mailto:srwa.spotlight@gmail.com" class="mt-1 block text-primary transition-colors hover:text-primary-dark dark:text-primary-light dark:hover:text-white">
+                  srwa.spotlight@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <!-- Office Hours -->
+            <div class="flex items-start gap-4">
+              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-light">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-heading text-sm font-semibold uppercase tracking-wide text-text-muted dark:text-gray-400">Office Hours</h3>
+                <p class="mt-1 text-text-light dark:text-gray-300">Sunday 10:00 AM - 12:00 PM</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right: Contact Form -->
+        <div class="lg:col-span-3">
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Maps Embed -->
+  <section class="bg-bg-alt py-16 sm:py-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6">
+      <div class="text-center">
+        <h2 class="font-heading text-3xl font-bold text-text sm:text-4xl dark:text-white">
+          Find Us
+        </h2>
+        <div class="mx-auto mt-2 h-1 w-20 rounded-full bg-primary"></div>
+        <p class="mt-4 text-text-muted dark:text-gray-400">Located in Thirumazhisai, Chennai</p>
+      </div>
+      <div class="mt-10 overflow-hidden rounded-2xl border border-gray-100 shadow-lg dark:border-gray-700">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15546.0!2d80.0567!3d13.0569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5261f8a1e0e6a7%3A0x4b8b3b60025c8c6!2sThirumazhisai!5e0!3m2!1sen!2sin!4v1"
+          width="100%"
+          height="400"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="SRWA Office Location - Thirumazhisai, Chennai"
+          class="w-full"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

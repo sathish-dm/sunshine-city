@@ -1,0 +1,98 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import EventCard from "../components/EventCard.astro";
+import eventsData from "../data/events.json";
+
+// Separate upcoming and past events, sorted by date
+const upcomingEvents = eventsData
+  .filter((e) => e.status === "upcoming")
+  .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
+const pastEvents = eventsData
+  .filter((e) => e.status === "past")
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+---
+
+<BaseLayout title="Events & Activities - SRWA" description="Explore upcoming and past events organized by Sunshine Residents Welfare Association.">
+  <!-- Page Header Banner -->
+  <section class="relative bg-gradient-to-br from-primary-dark to-primary py-16 sm:py-20">
+    <div class="absolute inset-0 opacity-10" style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;);"></div>
+    <div class="relative z-10 mx-auto max-w-5xl px-4 text-center sm:px-6">
+      <h1 class="font-heading text-4xl font-bold text-white sm:text-5xl">Events & Activities</h1>
+      <p class="mt-3 text-lg text-white/80">Community events that bring us together</p>
+      <nav class="mt-4 flex items-center justify-center gap-2 text-sm text-white/70">
+        <a href="/" class="transition-colors hover:text-white">Home</a>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+        </svg>
+        <span class="text-white">Events</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Upcoming Events -->
+  <section class="bg-bg py-16 sm:py-20">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6">
+      <div class="mb-10">
+        <h2 class="font-heading text-3xl font-bold text-text sm:text-4xl dark:text-white">
+          Upcoming Events
+        </h2>
+        <div class="mt-2 h-1 w-20 rounded-full bg-primary"></div>
+      </div>
+
+      {upcomingEvents.length > 0 ? (
+        <div class="space-y-5">
+          {upcomingEvents.map((event) => (
+            <EventCard
+              title={event.title}
+              date={event.date}
+              time={event.time}
+              location={event.location}
+              category={event.category}
+              description={event.description}
+              status={event.status as "upcoming" | "past"}
+            />
+          ))}
+        </div>
+      ) : (
+        <div class="rounded-2xl border border-gray-100 bg-white p-10 text-center shadow-md dark:border-gray-700 dark:bg-gray-800">
+          <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-text-muted dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <p class="mt-4 text-lg font-medium text-text-muted dark:text-gray-400">No upcoming events at the moment</p>
+          <p class="mt-1 text-sm text-text-muted dark:text-gray-500">Check back soon for new events and activities!</p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Past Events -->
+  {pastEvents.length > 0 && (
+    <section class="bg-bg-alt py-16 sm:py-20">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6">
+        <div class="mb-10">
+          <h2 class="font-heading text-3xl font-bold text-text sm:text-4xl dark:text-white">
+            Past Events
+          </h2>
+          <div class="mt-2 h-1 w-20 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+        </div>
+
+        <div class="space-y-5">
+          {pastEvents.map((event) => (
+            <EventCard
+              title={event.title}
+              date={event.date}
+              time={event.time}
+              location={event.location}
+              category={event.category}
+              description={event.description}
+              status={event.status as "upcoming" | "past"}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</BaseLayout>
