@@ -6,8 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 // To add sitemap support, run: npx astro add sitemap
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://sathish-dm.github.io',
-  base: '/sunshine-city',
+  site: 'https://sunshineresidents.in',
   vite: {
     plugins: [tailwindcss()]
   }

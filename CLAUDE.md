@@ -21,7 +21,7 @@ npm run preview  # Preview production build
 
 ## Key Conventions
 
-- **Base path:** Site is deployed at `/sunshine-city/` subpath on GitHub Pages. All internal links use `import.meta.env.BASE_URL` via a `const base` variable in each file's frontmatter. When linking, use `${base}/page-name`.
+- **Base path:** Site is deployed at the root path on GitHub Pages with custom domain `sunshineresidents.in`. All internal links use `import.meta.env.BASE_URL` via a `const base` variable in each file's frontmatter. When linking, use `${base}/page-name`.
 - **Tailwind theme colors:** `primary`, `primary-light`, `primary-dark`, `secondary`, `secondary-light`, `secondary-dark`, `bg`, `bg-alt`, `text`, `text-light`, `text-muted`. Use as utility classes: `bg-primary`, `text-secondary`, etc.
 - **Fonts:** `font-heading` (Playfair Display) for headings, `font-body` (Inter) for body text.
 - **Dark mode:** Uses `.dark` class on `<html>`. Toggle via `dark:` Tailwind variants. State stored in `localStorage`.
